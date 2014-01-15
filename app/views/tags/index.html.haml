@@ -1,0 +1,20 @@
+%h1 Тэги
+%h3 Всего #{@tags.size}
+
+%hr
+= link_to 'Добавить', new_tag_path
+%hr
+
+%table
+  %tr
+    %th Название
+    %th
+    %th
+    %th
+
+  - @tags.each do |tag|
+    %tr
+      %td
+        = tag_element(tag)
+      %td= link_to 'Редактировать', edit_tag_path(tag)
+      %td= link_to 'Удалить', tag, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -1,0 +1,16 @@
+%h1 Люди: #{@tag.name.inspect}
+%h3 Всего #{@people.size}
+
+%hr
+
+%table
+  %tr
+    %th Имя
+
+  - @people.each do |person|
+    %tr
+      %td= person.name
+
+%hr
+
+= link_to 'Редактировать тэг', edit_tag_path(@tag)

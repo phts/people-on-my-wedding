@@ -1,0 +1,21 @@
+= form_for @person do |f|
+  - if @person.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@person.errors.count, "error")} prohibited this person from being saved:"
+      %ul
+        - @person.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name, 'Имя'
+    = f.text_field :name, autofocus: true
+
+  .field
+    = f.label 'Тэги'
+    %ul
+      - @tags.each do |t|
+        %li
+          %input{id: "tag-#{t.id}", type: :checkbox, name: "tag[#{t.id}]", value: 1, checked: @person.tags.include?(t)}
+          %label{for: "tag-#{t.id}"}= tag_element(t, false)
+  .actions
+    = f.submit 'Сохранить'

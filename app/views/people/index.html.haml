@@ -1,0 +1,22 @@
+%h1 Люди
+%h3 Всего #{@people.size}
+
+%hr
+= link_to 'Добавить', new_person_path
+%hr
+
+%table
+  %tr
+    %th Имя
+    %th Тэги
+    %th
+    %th
+
+  - @people.each do |person|
+    %tr
+      %td= person.name
+      %td
+        - person.tags.order('name ASC').each do |t|
+          = tag_element(t)
+      %td= link_to 'Редактировать', edit_person_path(person)
+      %td= link_to 'Удалить', person, :method => :delete, :data => { :confirm => 'Are you sure?' }

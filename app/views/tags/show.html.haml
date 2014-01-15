@@ -1,0 +1,11 @@
+%p#notice= notice
+
+%p
+  %b Название:
+  = @tag.name
+
+= link_to 'Создать еще', new_tag_path
+\|
+= link_to 'Редактировать', edit_tag_path(@tag)
+\|
+= link_to 'Назад', tags_path

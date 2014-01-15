@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Имя:
+  = @person.name
+
+%p
+  - @person.tags.order('name ASC').each do |t|
+    = tag_element(t)
+
+= link_to 'Создать еще', new_person_path
+\|
+= link_to 'Редактировать', edit_person_path(@person)
+\|
+= link_to 'Назад', people_path
