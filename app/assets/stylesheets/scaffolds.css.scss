@@ -21,7 +21,7 @@ pre {
 a {
   color: #000;
   &:visited {
-    color: #666;
+    color: #000;
   }
   &:hover {
     color: #fff;
@@ -68,6 +68,37 @@ div {
   }
 }
 
-table, tr, td {
-  border: 1px solid black;
+.cat {
+  img {
+    float: right;
+  }
+}
+
+nav {
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+
+  th {
+    text-align: left;
+  }
+
+  .control {
+    width: 1%;
+    background-color: #eee;
+  }
+}
+
+.content-wrapper {
+  width: 75%; min-width: 450px;
+  margin-left: auto; margin-right: auto;
+}
+
+form {
+  ul {
+    list-style-type: none;
+  }
 }

@@ -6,15 +6,14 @@
 %hr
 
 %table
-  %tr
-    %th Название
-    %th
-    %th
-    %th
+  %colgroup
+    %col.name
+    %col
+    %col
 
   - @tags.each do |tag|
     %tr
       %td
         = tag_element(tag)
-      %td= link_to 'Редактировать', edit_tag_path(tag)
-      %td= link_to 'Удалить', tag, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td.control= link_to 'Редактировать', edit_tag_path(tag)
+      %td.control= link_to 'Удалить', tag, :method => :delete, :data => { :confirm => 'Are you sure?' }

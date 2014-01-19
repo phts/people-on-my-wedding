@@ -1,16 +1,23 @@
 !!!
 %html
   %head
-    %title Люди
+    %title Люди на свадьбе
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = csrf_meta_tag
   %body
-    %div
+    .content-wrapper
+      .cat
+        = image_tag('cat.png')
+
       - if signed_in?
-        %ul
-          %li= link_to('Люди', people_path)
-          %li= link_to('Тэги', tags_path)
-          %li= link_to('Изменить пароль', edit_password_path)
-          %li= link_to('Выйти', sign_out_path, data: {:confirm => 'Выйти?'})
-    = yield
+        %nav
+          = link_to('Люди', people_path)
+          \|
+          = link_to('Тэги', tags_path)
+          \|
+          = link_to('Изменить пароль', edit_password_path)
+          \|
+          = link_to('Выйти', sign_out_path, data: {:confirm => 'Выйти?'})
+
+      = yield
