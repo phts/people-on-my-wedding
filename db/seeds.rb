@@ -6,4 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(password: 'default')
+if User.count == 0
+  User.create(password: 'default')
+end
+
+if Rails.env == 'development'
+  Tag.create(name: 'От Филиппа')
+  Tag.create(name: 'От Яны')
+  Tag.create(name: 'Гродненские')
+  Tag.create(name: 'Иногородние')
+  Person.create(name: 'Яна')
+  Person.create(name: 'Филипп')
+  Person.create(name: 'Мама')
+  Person.create(name: 'Папа')
+end
