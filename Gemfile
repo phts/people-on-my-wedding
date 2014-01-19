@@ -45,3 +45,6 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'haml-rails'
+
+# To get to work assets on Heroku
+gem 'rails_12factor', group: :production
