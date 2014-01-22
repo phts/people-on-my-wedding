@@ -5,7 +5,14 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all.order('name ASC')
+    unless params[:tag].blank?
+      @tag = Tag.find_by(name: params[:tag].strip)
+    end
+    if @tag
+      @people = @tag.people.order('name ASC')
+    else
+      @people = Person.all.order('name ASC')
+    end
   end
 
   # GET /people/1

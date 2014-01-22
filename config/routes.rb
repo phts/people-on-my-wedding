@@ -11,7 +11,7 @@ People::Application.routes.draw do
   resources :people
   resources :tags
 
-  get 'tags/:id/people' => 'tags#people', as: 'tags_people'
+  get 'people?tag=:name' => 'people#index', as: 'people_by_tag'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

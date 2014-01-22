@@ -1,8 +1,15 @@
-%h1 Люди
+%h1
+  - if @tag
+    = "Люди: #{@tag.name.inspect}"
+  - else
+    = 'Люди'
 %h3 Всего #{@people.size}
 
 %hr
-= link_to 'Добавить', new_person_path
+- if @tag
+  = link_to 'Редактировать тэг', edit_tag_path(@tag)
+- else
+  = link_to 'Добавить', new_person_path
 %hr
 
 %table.people

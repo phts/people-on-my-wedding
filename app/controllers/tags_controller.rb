@@ -65,10 +65,6 @@ class TagsController < ApplicationController
     end
   end
 
-  def people
-    @people = @tag.people.order('name ASC')
-  end
-
   private
 
   def all_people
