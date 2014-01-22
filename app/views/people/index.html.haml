@@ -29,7 +29,9 @@
     %tr
       %td= person.name
       %td
-        - person.tags.order('name ASC').each do |t|
+        - tags = person.tags.order('name ASC')
+        - tags = tags.where('tags.id <> ?' , @tag.id) if @tag
+        - tags.each do |t|
           = tag_element(t)
       %td.control= link_to 'Редактировать', edit_person_path(person)
       %td.control= link_to 'Удалить', person, :method => :delete, :data => { :confirm => 'Are you sure?' }
